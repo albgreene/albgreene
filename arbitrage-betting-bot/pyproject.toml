@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arbitrage-bot"
+version = "0.1.0"
+description = "Scans bookmaker odds for arbitrage opportunities and alerts on them. Does not place bets."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+arbitrage-bot = "arbitrage_bot.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["arbitrage_bot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
